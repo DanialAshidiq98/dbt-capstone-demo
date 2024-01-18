@@ -1,10 +1,66 @@
-Welcome to your new dbt project!
+# dbt-capstone-demo
 
-### Using the starter project
+## A DBT capstone project similar to airline-demo where below feature covers:
 
-Try running the following commands:
-- dbt run
-- dbt test
+Datasets used:
+- airlines.csv
+- airports.csv
+- routes.csv
+- carriers.csv
+- OpenFlights_Dataset (Flights 2008)
+
+
+**Bronze Layer**:
+
+
+**Silver Layer**:
+
+
+**Gold Layer**:
+
+
+- Model chaining
+**Insert DAG here**
+
+
+- Source:
+
+
+
+
+
+Tables:
+
+Views:
+
+Ephemeral:
+
+Incremental (append, merge):
+
+
+
+
+
+Macros created:
+
+- limit data in dev (simple macro)
+- cents to dollars (simple macro)
+
+
+
+Generic and Singular Test:
+- assert_positive_total_for_flights
+
+
+Use package macros (from dbt-utils, dbt-expectations) in model and testing
+
+
+- dbt_utils.expression_is_true
+- dbt_utils.not_empty_string
+- dbt_expectations.expect_column_values_to_be_between
+
+Documentation (models, source, test, macro):
+- dbt docs generate
 
 
 ### Resources:
