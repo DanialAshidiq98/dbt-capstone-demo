@@ -1,0 +1,21 @@
+version: 2
+
+macros:
+  - name: get_distance_of_two_points
+    description: Haversine formula to calculate distance between two points
+    arguments:
+      - name: origin_lat
+        type: double
+        description: Original lat must correspond to origin_long.
+      - name: origin_long
+        type: double
+        description: Original long must correspond to origin_lat.
+      - name: origin_lat
+        type: double
+        description: Destination lat must correspond to dest_long.
+      - name: origin_long
+        type: double
+        description: Destination long must correspond to dest_lat.
+      - name: unit
+        type: jinja enum either 'km' or 'miles'
+        description: The unit of distance, make sure it's in lower case

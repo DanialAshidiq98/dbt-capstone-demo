@@ -1,0 +1,46 @@
+version: 2
+
+sources:
+  - name: capstone
+    description: an application database to store all flights data
+    database: capstone
+    schema: dbt_danial
+    tables:
+      - name: airlines
+        description: the raw airlines data
+        external:
+          using: csv
+          options:
+            header: true
+            inferSchema: true
+            
+      - name: airports
+        description: the raw airports data
+        external:
+          using: csv
+          options:
+            header: true
+            inferSchema: true
+        
+      - name: flights
+        description: the raw flights data
+        external:
+          using: csv
+          options:
+            header: true
+            inferSchema: true
+      - name: planes
+        description: the raw planes data
+        external:
+          using: csv
+          options:
+            header: true
+            inferSchema: true
+      - name: routes
+        description: the raw routes data
+        external:
+          using: csv
+          options:
+            header: true
+            inferSchema: true
+      
