@@ -1,7 +1,7 @@
-{% macro return_null(column_name) %}
+{% macro remove_NA_values(column_name,variable) %}
 
 case
-    when {{column_name}} not in ('NA') 
+    when {{column_name}} not in ('NA')
         then cast({{column_name}} as timestamp)
     else
         null

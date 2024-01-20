@@ -1,10 +1,10 @@
 with source as (
       select * from {{ source('capstone', 'airports') }}
 ),
-transformed as (
+brz_airports_table as (
     select
-        airport_id as id ,
-        name as airport_name ,
+        airport_id,
+        name,
         city,
         country,
         iata,
@@ -13,12 +13,12 @@ transformed as (
         longitude,
         altitude,
         timezone,
-        dst as destination,
-        tz_database_time_zone as timezone_database,
-        type as airport_type,
-        source as src 
+        dst,
+        tz_database_time_zone,
+        type,
+        source 
 
     from source
 )
-select * from transformed
+select * from brz_airports_table
   

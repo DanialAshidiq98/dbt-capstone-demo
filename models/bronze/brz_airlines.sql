@@ -1,7 +1,7 @@
 with source as (
       select * from {{ source('capstone', 'airlines') }}
 ),
-brz_airlines as (
+brz_airlines_table as (
     select
         airline_id,
         name,
@@ -13,6 +13,7 @@ brz_airlines as (
         active as active_airline
 
     from source
+    where airline_id > 0
 )
-select * from brz_airlines
+select * from brz_airlines_table
   
