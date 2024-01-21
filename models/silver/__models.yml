@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: slv_airports
+    description: >
+      Generates a transformed view of airport data, standardizing and enriching location information and making stable.
+      Provides an enriched dataset for analytical purposes without altering the original data.
+    meta:
+      model_maturity: in Dev
+    tests:
+      - expect_table_column_count_to_greater_then_or_equals_other_table:
+          compare_model: source('capstone', 'airports')
+    columns:
+      - name: airport_id
+        description: Airport IDs can take various forms and may differ depending country.
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - unique
+          - not_null
+          - dbt_utils.expression_is_true:
+              expression: '>= 1'
+
+  - name: slv_flights
+    description: >
+      No filter applied, it can have large data consider using table materlization
+      Generates a transformed view of airline__flights, standardizing and enriching distance information and making stable.
+      Provides an enriched dataset for analytical purposes without altering the original data.
+    meta:
+      model_maturity: in Dev
+    columns:
+      - name: flight_id
+        description: >
+          The flight_id contain information about the airline carrier, the flight number, 
+          The departure date and time, and additional details that distinguish it from other flights.
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - unique
+          - not_null
+          - assert_column_is_NA:
+              column_name: dep_time
+
+  - name: brz_planes
+    description:
+      Most of data already standardizing and clean
+    meta:
+      model_maturity: in Prod
+    columns:
+      - name: PLANES_NAME
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - unique
+          - not_null
