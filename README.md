@@ -12,9 +12,17 @@ Datasets used:
 
 
 **Bronze Layer**:
+- _sources.yml
+- brz_airlines.sql
+- brz_airports.sql
+- brz_flights.sql
+- brz_planes.sql
+- brz_routes.sql
 
 
 **Silver Layer**:
+_models.yml
+
 
 
 **Gold Layer**:

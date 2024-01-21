@@ -1,0 +1,172 @@
+models:
+  - name: flights
+    description: '{{ doc("flights") }}'
+    columns:
+      - name: flight_id
+        description: Unique identifier for each flight record.
+        data_type: string
+        constraints:
+          - type: not_null
+
+      - name: year
+        description: Year in 4-digit format, restricted to years after 1970.
+        data_type: int
+        constraints:
+          - type: check
+            expression: "year > 1970" 
+
+      - name: origin
+        description: Code or name representing the origin airport.
+        data_type: string
+        constraints:
+          - type: not_null
+
+      - name: dest
+        description: Code or name representing the destination airport.
+        data_type: string
+        constraints:
+          - type: not_null
+
+      - name: month
+        description: Numeric representation of the month.
+
+      - name: day_of_month
+        description: Numeric representation of the day within a month.
+
+      - name: day_of_week
+        description: Numeric representation of the day of the week.
+
+      - name: dep_time
+        description: Actual departure time.
+
+      - name: dep_time_timestamp
+        description: Timestamp of actual departure time.
+
+      - name: crs_dep_time_timestamp
+        description: Scheduled departure time timestamp.
+
+      - name: arr_time_timestamp
+        description: Timestamp of actual arrival time.
+
+      - name: crs_arr_time_timestamp
+        description: Scheduled arrival time timestamp.
+
+      - name: origin_lat
+        description: Latitude of the origin airport.
+
+      - name: origin_long
+        description: Longitude of the origin airport.
+
+      - name: dest_lat
+        description: Latitude of the destination airport.
+
+      - name: dest_long
+        description: Longitude of the destination airport.
+
+      - name: crs_dep_time
+        description: Scheduled departure time.
+
+      - name: arr_time
+        description: Actual arrival time.
+
+      - name: crs_arr_time
+        description: Scheduled arrival time.
+
+      - name: unique_carrier
+        description: Code or name representing the unique airline carrier.
+
+      - name: flight_num
+        description: Flight number assigned by the airline.
+
+      - name: tail_num
+        description: Tail number or registration number of the aircraft.
+
+      - name: actuall_elapsed_time
+        description: Actual elapsed time of the flight.
+
+      - name: crs_elapsed_time
+        description: Scheduled elapsed time of the flight.
+
+      - name: air_time
+        description: Duration of the flight in the air.
+
+      - name: arr_delay
+        description: Arrival delay in minutes.
+
+      - name: dep_delay
+        description: Departure delay in minutes.
+
+      - name: distance
+        description: Distance of the flight route.
+
+      - name: taxi_in
+        description: Taxi-in time at the destination airport.
+
+      - name: taxi_out
+        description: Taxi-out time at the origin airport.
+
+      - name: cancelled
+        description: Indicates if the flight was cancelled (0 = not cancelled, 1 = cancelled).
+
+      - name: cancellation_code
+        description: Code representing the reason for cancellation.
+
+      - name: diverted
+        description: Indicates if the flight was diverted (0 = not diverted, 1 = diverted).
+
+      - name: carrier_delay
+        description: Delay caused by the carrier.
+
+      - name: weather_delay
+        description: Delay caused by weather conditions.
+
+      - name: nas_delay
+        description: Delay attributed to the National Airspace System.
+
+      - name: security_delay
+        description: Delay caused by security issues.
+
+      - name: late_aircraft_delay
+        description: Delay caused by a previously late aircraft.
+
+      - name: distance_in_km
+        description: Distance of the flight route in kilometers.
+
+      - name: origin_airport_id
+        description: Unique identifier for the origin airport.
+
+      - name: origin_airport_name
+        description: Name of the origin airport.
+
+      - name: origin_airport_city
+        description: City where the origin airport is located.
+
+      - name: origin_airports_state
+        description: State where the origin airport is located.
+
+      - name: dest_airport_id
+        description: Unique identifier for the destination airport.
+
+      - name: dest_airport_name
+        description: Name of the destination airport.
+
+      - name: dest_airport_city
+        description: City where the destination airport is located.
+
+      - name: dest_airports_state
+        description: State where the destination airport is located.
+
+      - name: carrier_description
+        description: Description or name of the airline carrier.
+
+      - name: last_updated_ts
+        description: Timestamp of the last update to the flight record.
+
+      - name: flight_date
+        description: Date of the flight.
+
+      - name: airport_distance_in_miles
+        description: Distance between origin and destination airports in miles.
+      
+      - name: speed_in_km_h
+        description: the average speed of the flight in km/h
