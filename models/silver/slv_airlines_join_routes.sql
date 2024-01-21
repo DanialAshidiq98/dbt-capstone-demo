@@ -6,7 +6,19 @@ routes as (
     select * from {{ ref('brz_routes')}}
 ),
 
-slv_airlines_table_join_routes as (
+planes as (
+    select * from {{ref('brz_planes')}}
+),
+
+
+routes_enriched as (
+    select * 
+    from routes a
+    left join planes b on a.equipment = b.ISO_CODE
+),
+
+
+slv_airlines_table_enriched as (
 
     select
         a.airline_id,
@@ -22,14 +34,28 @@ slv_airlines_table_join_routes as (
         b.dst_airport_id,
         b.codeshare,
         b.stops,
-        b.equipment
+        b.planes_name,
+        b.ISO_CODE,
+        b.DAFIF_CODE
 
     from airlines a
-    left join routes b on a.airline_id = b.airline_id
-    where active_airline = 'true'
+    left join routes_enriched b on a.airline_id = b.airline_id
     order by 1
+),
+
+
+slv_airlines_table AS (
+    SELECT
+        {{ dbt_utils.generate_surrogate_key(['airline_id', 'name', 'IATA','ICAO' ]) }} as airline_key,
+        *
+    FROM
+        slv_airlines_table_enriched
 )
 
-select * from slv_airlines_table_join_routes
+
+select * from slv_airlines_table
+
+
+
 
 

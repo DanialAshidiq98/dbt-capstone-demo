@@ -2,14 +2,9 @@ with airports as (
       select * from {{ ref('brz_airports') }}
 ),
 
-planes as (
-    select * from {{ref('brz_planes')}}
-),
-
-
 slv_airports_table as (
     select
-        airport_id as id ,
+        airport_id,
         name as airport_name ,
         city,
         country,
@@ -25,11 +20,6 @@ slv_airports_table as (
         source as src_airport 
 
     from airports
-),
-
-transformed as (
-    select * from planes
 )
-
 
 select * from slv_airports_table

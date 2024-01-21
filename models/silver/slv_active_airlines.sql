@@ -6,11 +6,17 @@ slv_airlines_table_join_routes as (
 
 
 number_of_active_airlines as (
-    select 
+    select
+        a.airline_id,
         a.name,
-        count(a.country) as active_airlines
+        a.iata,
+        a.icao,
+        cast(count(a.country) as int) as active_airlines
+
     from slv_airlines_table_join_routes a
-    group by 1
+    where a.active_airline = 'true'
+    group by 1,2,3,4
+    order by 1
 )
 
 select * from number_of_active_airlines

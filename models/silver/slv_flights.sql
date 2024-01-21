@@ -9,23 +9,23 @@ transformed as (
         ,month
         ,dayofmonth  AS day_of_month
         ,dayofweek   AS day_of_week
-        ,{{remove_NA_values('deptime')}} AS dep_time
+        ,{{remove_NA_values_timestamp('deptime')}} AS dep_time
         ,cast(crsdeptime as timestamp) as crs_dep_time
-        ,{{remove_NA_values('arrtime')}} AS arr_time
+        ,{{remove_NA_values_timestamp('arrtime')}} AS arr_time
         , cast(crsarrtime as timestamp)  AS crs_arr_time
         , uniquecarrier                  AS unique_carrier
         , flightnum                      AS flight_num
         , tailnum                        AS tail_num
-        , {{remove_NA_values('actualelapsedtime')}} AS actual_elapsed_time
-        , crselapsedtime                 AS crs_elapsed_time
+        , {{remove_NA_values_int('actualelapsedtime')}} AS actual_elapsed_time
+        , {{remove_NA_values_int('crselapsedtime')}}    AS crs_elapsed_time
         , airtime                        AS air_time
-        , {{remove_NA_values('arrdelay')}} AS arr_delay
-        , {{remove_NA_values('depdelay')}} AS dep_delay
-        , origin as src_airport
-        , dest as dst_airport
+        , {{remove_NA_values_int('arrdelay')}} AS arr_delay
+        , {{remove_NA_values_int('depdelay')}} AS dep_delay
+        , origin
+        , dest
         , distance
-        , {{remove_NA_values('taxiin')}} AS taxi_in
-        , {{remove_NA_values('taxiout')}} AS taxi_out
+        , {{remove_NA_values_int('taxiin')}} AS taxi_in
+        , {{remove_NA_values_int('taxiout')}} AS taxi_out
         , cancelled
         , cancellationcode          AS cancellation_code
         , diverted      
