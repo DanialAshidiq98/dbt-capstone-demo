@@ -6,7 +6,6 @@ Datasets used:
 - airlines.csv
 - airports.csv
 - routes.csv
-- carriers.csv
 - planes.csv
 - OpenFlights_Dataset (Flights 2008)
 
