@@ -22,50 +22,73 @@ Datasets used:
 
 **Silver Layer**:
 _models.yml
-
+- slv_active_airlines.sql
+- slv_airlines_join_routes.sql
+- slv_airports.sql
+- slv_flights_enriched.sql
+- slv_flights_join_airports.sql
+- slv_flights.sql
 
 
 **Gold Layer**:
+_flights.md
+_flights.yml
+flights.sql
+active_airlines.sql
+airlines.sql
+flights.sql
 
 
-- Model chaining
-**Insert DAG here**
+## Model chaining:
+![Alt text](image.png)
 
-
-- Source:
-
-
-
-
+## Sources:
 
 Tables:
 
+- Airlines Table (List of all airlines with information merged with planes and routes)
+- Flights Table (List of all flights with information merged with airports) 
+
+Aggregations:
+- Active Airlines Table (List of active airlines)
+- Most Common Routes (TO-DO)
+- Average Departure Delay (TO-DO)
+- Average Arrival Delay (TO-DO)
+
 Views:
+- brz_airlines
+- brz_airports
+- brz_flights
+- brz_planes
+- brz_routes
 
 Ephemeral:
+- slv_active_airlines
+- slv_airlines_join_routes
+- slv_airports
+- slv_flights_enriched
+- slv_flights_join_airports
+- slv_flights
 
 Incremental (append, merge):
-
-
-
-
+- Flights Table
 
 Macros created:
 
-- limit data in dev (simple macro)
-- cents to dollars (simple macro)
-
+- if_NA_exists (clean up) convert to timestamp,int (simple macro)
+- calculate_speed (simple macro)
+- common_expressions (reference) (added random() instead of rand() due to snowflake syntax)
 
 
 Generic and Singular Test:
-- assert_positive_total_for_flights
+- assert_column_is_NA (check if NA values exists)
+- expect_table_column_count_to_greater_then_or_equals_other_table (reference)
 
 
 Use package macros (from dbt-utils, dbt-expectations) in model and testing
 
-
 - dbt_utils.expression_is_true
-- dbt_utils.not_empty_string
+- dbt_utils.generate_surrogate_key (args1,args2,...)
 - dbt_expectations.expect_column_values_to_be_between
 
 Documentation (models, source, test, macro):

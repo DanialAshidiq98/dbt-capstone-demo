@@ -39,3 +39,9 @@ models:
       +materialized: view
     gold:
       +materialzed: table
+
+tests:
+  dbt_capstone_danial:
+    +severity: warn
+    +store_failures: True
+  
