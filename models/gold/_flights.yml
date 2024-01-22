@@ -51,16 +51,16 @@ models:
       - name: crs_arr_time_timestamp
         description: Scheduled arrival time timestamp.
 
-      - name: origin_lat
+      - name: origin_latitude
         description: Latitude of the origin airport.
 
-      - name: origin_long
+      - name: origin_longitude
         description: Longitude of the origin airport.
 
-      - name: dest_lat
+      - name: dest_latitude
         description: Latitude of the destination airport.
 
-      - name: dest_long
+      - name: dest_longitude
         description: Longitude of the destination airport.
 
       - name: crs_dep_time
@@ -81,7 +81,7 @@ models:
       - name: tail_num
         description: Tail number or registration number of the aircraft.
 
-      - name: actuall_elapsed_time
+      - name: actual_elapsed_time
         description: Actual elapsed time of the flight.
 
       - name: crs_elapsed_time
@@ -149,15 +149,6 @@ models:
 
       - name: dest_airport_name
         description: Name of the destination airport.
-
-      - name: dest_airport_city
-        description: City where the destination airport is located.
-
-      - name: dest_airports_state
-        description: State where the destination airport is located.
-
-      - name: carrier_description
-        description: Description or name of the airline carrier.
 
       - name: last_updated_ts
         description: Timestamp of the last update to the flight record.

@@ -50,3 +50,15 @@ models:
           - dbt_expectations.expect_column_to_exist
           - unique
           - not_null
+
+  - name: slv_airlines_join_routes
+    description:
+      list of airlines going to different routes according to the planes
+    meta:
+      model_maturity: in Dev
+    columns:
+      - name: airline_key
+        tests:
+          - dbt_expectations.expect_column_to_exist
+          - unique
+          - not_null

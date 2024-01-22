@@ -39,14 +39,14 @@ slv_airlines_table_enriched as (
         b.DAFIF_CODE
 
     from airlines a
-    left join routes_enriched b on a.airline_id = b.airline_id
+    left join routes_enriched b on a.iata = b.airline and a.airline_id = b.airline_id
     order by 1
 ),
 
 
 slv_airlines_table AS (
     SELECT
-        {{ dbt_utils.generate_surrogate_key(['airline_id', 'name', 'IATA','ICAO' ]) }} as airline_key,
+        {{ dbt_utils.generate_surrogate_key(['airline_id', 'name', 'IATA','ICAO','src_airport', 'src_airport_id' , 'dst_airport' ,'dst_airport_id' , 'planes_name' ]) }} as airline_key,
         *
     FROM
         slv_airlines_table_enriched
