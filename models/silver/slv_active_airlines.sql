@@ -12,12 +12,13 @@ number_of_active_airlines as (
         a.iata,
         a.icao,
         a.planes_name,
-        cast(count(a.country) as int) as active_airlines
+        a.country,
+        cast(count(a.name) as int) as active_airlines
 
     from slv_airlines_table_join_routes a
     where a.active_airline = 'true'
     AND planes_name is not null
-    group by 1,2,3,4,5
+    group by 1,2,3,4,5,6
     order by 2
 )
 

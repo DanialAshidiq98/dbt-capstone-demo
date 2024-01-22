@@ -156,7 +156,7 @@ models:
       - name: flight_date
         description: Date of the flight.
 
-      - name: airport_distance_in_miles
+      - name: airport_distance_in_km
         description: Distance between origin and destination airports in miles.
       
       - name: speed_in_km_h
