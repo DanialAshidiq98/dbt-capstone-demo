@@ -4,6 +4,7 @@ with source as (
 
 brz_flights_table as (
     select * from source
+    where deptime != arrtime
 )
 
 select * from brz_flights_table
