@@ -30,12 +30,12 @@ _models.yml
 
 
 **Gold Layer**:
-_flights.md
-_flights.yml
-flights.sql
-active_airlines.sql
-airlines.sql
-flights.sql
+- _flights.md
+- _flights.yml
+- flights.sql
+- active_airlines.sql
+- airlines.sql
+- flights.sql
 
 
 ## Model chaining:
@@ -72,12 +72,15 @@ Ephemeral:
 Incremental (append, merge):
 - Flights Table
 
+
+## Macros:
 Macros created:
 
 - if_NA_exists (clean up) convert to timestamp,int (simple macro)
 - calculate_speed (simple macro)
 - common_expressions (reference) (added random() instead of rand() due to snowflake syntax)
 
+## Tests
 
 Generic and Singular Test:
 - assert_column_is_NA (check if NA values exists)
