@@ -1,3 +1,8 @@
+{{ config(
+    tags=["flights"]
+) }}
+
+
 with flights_info_joins as (
     select
         *
@@ -13,11 +18,11 @@ slv_flight_table_enriched as (
             (
                 year || '-' || month || '-' || day_of_month
             ) as date) as flight_date
-        {% for column in ['dep_time', 'crs_dep_time', 'arr_time', 'crs_arr_time'] %}
+        {% for column in ['dep_time', 'arr_time','crs_dep_time','crs_arr_time'] %}
         ,cast(
             (
-                flight_date || ' ' || {{ get_as_time_format(column) }}
-            ) as string)  as {{ column }}_timestamp
+                flight_date || 'T' || {{ column }}
+            ) as timestamp)  as {{ column }}_timestamp
         {% endfor %}
         , round({{ get_distance_of_two_points('origin_latitude', 'origin_longitude', 'dest_latitude', 'dest_longitude', 'km') }},2) as airport_distance_in_km
     from

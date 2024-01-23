@@ -10,9 +10,9 @@ transformed as (
         ,dayofmonth                                 AS day_of_month
         ,dayofweek                                  AS day_of_week
         ,{{remove_NA_values_timestamp('deptime')}}  AS dep_time
-        ,cast(crsdeptime as timestamp)              AS crs_dep_time
+        ,{{type_to_time('crsdeptime')}}             AS crs_dep_time
         ,{{remove_NA_values_timestamp('arrtime')}}  AS arr_time
-        , cast(crsarrtime as timestamp)             AS crs_arr_time
+        ,{{type_to_time('crsdeptime')}}             AS crs_arr_time
         , uniquecarrier                             AS unique_carrier
         , flightnum                                 AS flight_num
         , tailnum                                   AS tail_num
