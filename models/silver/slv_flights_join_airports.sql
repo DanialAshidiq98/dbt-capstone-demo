@@ -23,8 +23,8 @@ transformed as (
         , air_dest.longitude            AS dest_longitude
     from
     slv_flights_table flt
-    inner join slv_airports air_origin on flt.origin = air_origin.iata
-    inner join slv_airports air_dest   on flt.dest = air_dest.iata
+    JOIN slv_airports air_origin ON flt.origin = air_origin.iata
+    JOIN slv_airports air_dest   ON flt.dest = air_dest.iata
 )
 
 select * from transformed
