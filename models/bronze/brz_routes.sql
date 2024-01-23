@@ -3,7 +3,7 @@ with source as (
 ),
 brz_routes_table as (
     select
-        airline,
+        airline as iata,
         airline_id,
         src_airport,
         src_airport_id,

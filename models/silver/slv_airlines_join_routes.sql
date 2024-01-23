@@ -8,6 +8,9 @@ routes as (
 
 planes as (
     select * from {{ref('brz_planes')}}
+    where planes_name is not null
+    AND iso_code is not null
+    AND DAFIF_code is not null
 ),
 
 
@@ -39,7 +42,7 @@ slv_airlines_table_enriched as (
         b.DAFIF_CODE
 
     from airlines a
-    left join routes_enriched b on a.iata = b.airline and a.airline_id = b.airline_id
+    left join routes_enriched b on a.iata = b.iata and a.airline_id = b.airline_id
     order by 1
 ),
 
