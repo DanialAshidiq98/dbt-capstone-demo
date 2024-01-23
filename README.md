@@ -50,9 +50,7 @@ Tables:
 
 Aggregations:
 - Active Airlines Table (List of active airlines)
-- Most Common Routes (TO-DO)
-- Average Departure Delay (TO-DO)
-- Average Arrival Delay (TO-DO)
+- Most Common Airlines (List of airline appeared)
 
 Views:
 - brz_airlines
