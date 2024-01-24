@@ -32,7 +32,7 @@ slv_flight_table_enriched as (
 slv_flight_table_enriched_2 as (
     select
         *,
-        round( {{calculate_speed('airport_distance_in_km','difference_seconds')}}  , 2) as speed_in_km_h
+        floor( {{calculate_speed('airport_distance_in_km','difference_seconds')}}  ) as speed_in_km_h
     from slv_flight_table_enriched
 )
 

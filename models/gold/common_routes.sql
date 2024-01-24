@@ -12,6 +12,7 @@ with airlines_routes as (
         {{ ref('slv_airlines_join_routes') }}
 ),
 
+-- To find most common routes in USA specifically
 final as (
     select
         name,
