@@ -95,6 +95,22 @@ Documentation (models, source, test, macro):
 - dbt docs generate
 
 
+[Optional Task]:
+CI/CI Pipeline
+
+Steps needed:
+- install pre-commit
+- create requirements.txt (libraries)
+- create .pre-commit-config.yaml
+- SQLFluff (adhering to coding standards)
+- YAMLint (Linting of queries)
+- dbt-checkpoints (Using macros for CI workflow) (sets of hooks we can do to automate a series of checks)
+- Achieve SLIM CI (Using state:modified for certain models), build only modified models
+- Configure github workflow
+- Set environment variables
+- Check scenarios (success/failure) 
+
+
 ### Resources:
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
 - Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
